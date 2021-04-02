@@ -31,7 +31,9 @@ const BASE_URL = "http://localhost:8000/api"
                 axios.post(BASE_URL + '/user', {
                     user : this.user
                 }).then((response)=>{
-                    console.log(response.data);
+                    localStorage.setItem('test-token', response.data.Token)
+                }).catch((error)=> {
+                    console.log(error.response.data.errors)
                 })
             }
         },
